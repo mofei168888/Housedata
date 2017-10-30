@@ -5,6 +5,8 @@ from pytdx.params import TDXParams
 import pandas as pd
 import tushare as ts
 from app.sqlorm import sqlorm
+import os
+
 
 def get_history_data(code, date):
     ST_TYPE = {'6': 1,  # 0 深圳，1 上海
@@ -43,4 +45,5 @@ if __name__ == '__main__':
    print("start insert into mysql database!")
    orm = sqlorm()
    orm.create_tables()
+
    orm.Engine.execute("INSERT INTO stock_list (code,name) VALUES ('000333','中兴通讯')")
