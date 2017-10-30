@@ -5,6 +5,8 @@ MAINTAINER Robin <Robin.chen@b-uxin.com>
 RUN mkdir -p /app
 WORKDIR /app
 
+RUN pip install lxml
+
 COPY requirements.txt /app
 RUN cd /app && pip install  -r requirements.txt
 
