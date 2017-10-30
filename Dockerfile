@@ -5,8 +5,10 @@ MAINTAINER Robin <Robin.chen@b-uxin.com>
 RUN mkdir -p /app
 WORKDIR /app
 
+COPY base.txt /app
 COPY requirements.txt /app
 RUN cd /app
+RUN pip install  -r base.txt
 RUN pip install  -r requirements.txt
 
 COPY main.py /app

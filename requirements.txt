@@ -1,9 +1,2 @@
-pymysql == 0.7.11
-lxml == 4.0.0
-pandas == 0.20.3
-requests == 2.18.4
-BS4 == 0.0.1
-urllib3 == 1.22
 tushare == 0.9.8
 pytdx == 1.48
-sqlalchemy ==1.1.14
