@@ -6,7 +6,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint, In
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy import create_engine
 from sqlalchemy.orm import *
-
+import os
 
 class sqlorm:
     def __init__(self):
@@ -19,10 +19,15 @@ class sqlorm:
             index, value = line.split('=')
             db_ini[index] = value.strip()
         fdc.close()
-        db_connect_string = "%s://%s:%s@%s:%s/%s?charset=%s" % (
-        db_list['mysql'], db_ini['user'], db_ini['passwd'], db_ini['host'], db_ini['port'], db_ini['db'],
-        db_ini['charset'])
+        if 'DB_HOST' in os.environ:
+            db_ini['host'] = os.environ['DB_HOST']
+        if 'DB_PASSWD' in os.environ:
+            db_ini['passwd'] = os.environ['DB_PASSWD']
+        if 'DB_NAME' in os.environ:
+            db_ini['db'] = os.environ['DB_NAME']
 
+        db_connect_string = "%s://%s:%s@%s:%s/%s?charset=%s" % (db_list['mysql'], db_ini['user'], db_ini['passwd'], db_ini['host'], db_ini['port'], db_ini['db'],db_ini['charset'])
+        print(db_connect_string)
         self.Engine = create_engine(db_connect_string, echo=True)
         self.Base = declarative_base()
 
