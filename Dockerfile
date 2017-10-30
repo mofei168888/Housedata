@@ -1,18 +1,26 @@
-FROM python:3.6.2
-MAINTAINER Robin <Robin.chen@b-uxin.com>
+FROM daocloud.io/ubuntu:16.04
 
 
-RUN mkdir -p /app
+ENV LANG C.UTF-8
+
+RUN apt-get update
+RUN apt-get install -y python3 && \
+     apt-get install -y python-pip
+
+RUN  mkdir -p /app
+
 WORKDIR /app
+
 
 COPY base.txt /app
 COPY requirements.txt /app
-RUN cd /app
-RUN pip install  -r base.txt
-RUN pip install  -r requirements.txt
 
-COPY main.py /app
+RUN cd /app && pip install -r base.txt
+RUN cd /app && pip install -r requirements.txt
+
+COPY /app /app
 
 EXPOSE 80
 
-ENTRYPOINT ["python3", "/app/main.py"]
+
+ENTRYPOINT ["python", "/app/main.py"]

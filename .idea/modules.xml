@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/stockv.iml" filepath="$PROJECT_DIR$/.idea/stockv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/python3.6.2-alpine.iml" filepath="$PROJECT_DIR$/.idea/python3.6.2-alpine.iml" />
     </modules>
   </component>
 </project>
