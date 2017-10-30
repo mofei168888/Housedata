@@ -2,10 +2,9 @@
 
 from pytdx.hq import  TdxHq_API
 from pytdx.params import TDXParams
-#from sqlalchemy import create_engine
 import pandas as pd
 import tushare as ts
-
+from app.sqlorm import sqlorm
 
 def get_history_data(code, date):
     ST_TYPE = {'6': 1,  # 0 深圳，1 上海
@@ -35,10 +34,13 @@ def get_history_data(code, date):
 
 
 if __name__ == '__main__':
-    counter =0
-    while 1:
-        print("test %s"%counter)
-        #get_history_data('000737',20171003)
-        data = ts.get_st_classified()
-        print(data)
-        counter+=1
+
+   #print("test")
+   #get_history_data('000737',20171003)
+   #data = ts.get_st_classified()
+   #print(data)
+
+   print("start insert into mysql database!")
+   orm = sqlorm()
+   orm.create_tables()
+   orm.Engine.execute("INSERT INTO stock_list (code,name) VALUES ('000333','中兴通讯')")
