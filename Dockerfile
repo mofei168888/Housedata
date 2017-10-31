@@ -12,13 +12,13 @@ RUN  mkdir -p /app
 WORKDIR /app
 
 
+COPY . /app
 COPY base.txt /app
 COPY requirements.txt /app
 
 RUN cd /app && pip install -r base.txt
 RUN cd /app && pip install -r requirements.txt
 
-COPY /app /app
 
 EXPOSE 80
 
