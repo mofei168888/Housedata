@@ -12,7 +12,7 @@ RUN  mkdir -p /app
 WORKDIR /app
 
 
-COPY . /app
+COPY ./ /app
 COPY base.txt /app
 COPY requirements.txt /app
 
