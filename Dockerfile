@@ -20,7 +20,7 @@ RUN virtualenv --no-site-packages smenv
 
 RUN ["/bin/bash","-c","source smenv/bin/activate"]
 
-COPY . /app
+COPY /app /app
 COPY base.txt /app
 COPY requirements.txt /app
 
