@@ -4,7 +4,7 @@ from pytdx.hq import  TdxHq_API
 from pytdx.params import TDXParams
 import pandas as pd
 import tushare as ts
-from sqlorm import sqlorm
+from app.sqlorm import sqlorm
 import os
 
 

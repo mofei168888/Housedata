@@ -6,8 +6,8 @@ ENV LANG C.UTF-8
 
 RUN apt-get update
 RUN apt-get install -y python3 && \
-     apt-get install -y python-pip
-
+     apt-get install -y python-pip \
+     apt-get remove python
 
 RUN  mkdir -p /app
 
