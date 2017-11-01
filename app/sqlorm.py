@@ -30,7 +30,7 @@ class sqlorm:
         if 'DB_NAME' in os.environ:
             db_ini['db'] = os.environ['DB_NAME']
         if 'PORT' in os.environ:
-            db_ini['db'] = os.environ['PORT']
+            db_ini['port'] = os.environ['PORT']
 
         db_connect_string = "%s://%s:%s@%s:%s/%s?charset=%s" % (db_list['mysql'], db_ini['user'], db_ini['passwd'], db_ini['host'], db_ini['port'], db_ini['db'],db_ini['charset'])
         print(db_connect_string)
