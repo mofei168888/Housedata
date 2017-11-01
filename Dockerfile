@@ -3,6 +3,9 @@ FROM daocloud.io/ubuntu:16.04
 
 ENV LANG C.UTF-8
 
+#使用bash命令
+RUN /bin/bash
+
 RUN apt-get update
 RUN apt-get install -y python3 && \
      apt-get install -y python-pip
