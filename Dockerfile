@@ -3,7 +3,7 @@ FROM daocloud.io/ubuntu:16.04
 
 ENV LANG C.UTF-8
 
-#使用bash命令
+#使用bash命令集
 RUN /bin/bash
 
 RUN apt-get update
