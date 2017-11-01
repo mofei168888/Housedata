@@ -1,4 +1,7 @@
 # -*- coding: UTF-8 -*-
+#MAINTAINER Robin<robin.chen@b-uxin.com>
+#Version V.0001
+
 
 from pytdx.hq import  TdxHq_API
 from pytdx.params import TDXParams

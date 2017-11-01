@@ -1,5 +1,6 @@
 FROM daocloud.io/ubuntu:16.04
 
+MAINTAINER Robin<robin.chen@b-uxin.com>
 
 ENV LANG C.UTF-8
 
