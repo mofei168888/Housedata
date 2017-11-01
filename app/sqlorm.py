@@ -24,7 +24,7 @@ class sqlorm:
         if 'DB_HOST' in os.environ:
             db_ini['host'] = os.environ['DB_HOST']
         if 'DB_USER' in os.environ:
-            db_ini['user'] = os.environp['DB_USER']
+            db_ini['user'] = os.environ['DB_USER']
         if 'DB_PASSWD' in os.environ:
             db_ini['passwd'] = os.environ['DB_PASSWD']
         if 'DB_NAME' in os.environ:
