@@ -4,8 +4,12 @@ from pytdx.hq import  TdxHq_API
 from pytdx.params import TDXParams
 import pandas as pd
 import tushare as ts
-from sqlorm import sqlorm
 import os
+try:
+    from app.sqlorm import sqlorm
+except Exception as e:
+    from sqlorm import sqlorm
+
 
 
 def get_history_data(code, date):
@@ -46,4 +50,4 @@ if __name__ == '__main__':
    orm = sqlorm()
    orm.create_tables()
 
-   orm.Engine.execute("INSERT INTO stock_list (code,name) VALUES ('000333','中兴通讯')")
+   orm.Engine.execute("INSERT INTO stock_list (code,name) VALUES ('500333','中兴通讯')")
