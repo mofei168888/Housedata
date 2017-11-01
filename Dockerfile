@@ -3,8 +3,6 @@ FROM daocloud.io/ubuntu:16.04
 
 ENV LANG C.UTF-8
 
-#使用bash命令集
-RUN /bin/bash
 
 RUN apt-get update
 RUN apt-get install -y python3 && \
@@ -18,6 +16,8 @@ WORKDIR /app
 #创建并管理Python运行的环境
 RUN pip install virtualenv
 RUN virtualenv --no-site-packages smenv
+#使用bash命令集
+RUN /bin/bash
 RUN source smenv/bin/activate
 
 COPY . /app
