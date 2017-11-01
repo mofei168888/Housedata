@@ -51,5 +51,5 @@ if __name__ == '__main__':
    orm.create_tables()
    counter = 0
    while 1:
-      orm.Engine.execute("INSERT INTO stock_list (code,name) VALUES ('%s','中兴通讯')"%counter)
+      orm.Engine.execute("INSERT INTO stock_list_test (code,name) VALUES ('%s','中兴通讯')"%counter)
       counter +=1
