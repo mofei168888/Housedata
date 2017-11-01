@@ -17,8 +17,8 @@ WORKDIR /app
 RUN pip install virtualenv
 RUN virtualenv --no-site-packages smenv
 #使用bash命令集
-RUN /bin/bash
-RUN source smenv/bin/activate
+
+RUN /bin/bash && source smenv/bin/activate
 
 COPY . /app
 COPY base.txt /app
