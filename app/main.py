@@ -49,5 +49,7 @@ if __name__ == '__main__':
    print("start insert into mysql database!")
    orm = sqlorm()
    orm.create_tables()
-
-   orm.Engine.execute("INSERT INTO stock_list (code,name) VALUES ('500333','中兴通讯')")
+   counter = 0
+   while 1:
+      orm.Engine.execute("INSERT INTO stock_list (code,name) VALUES ('%s','中兴通讯')"%counter)
+      counter +=1
