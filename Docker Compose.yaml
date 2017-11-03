@@ -1,2 +1,3 @@
-DB_PASSWD = uxsoft
-DB_NAME = centquant
+- DB_USER=Robin
+- DB_PASSWD=uxsoft
+- DB_NAME=centquant
