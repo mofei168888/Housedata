@@ -43,7 +43,7 @@ class sqlorm:
         self.Base = declarative_base()
 
         class stock_list(self.Base):
-            __tablename__ = 'stock_list_test'
+            __tablename__ = 'stock_list_test1'
             code = Column(String(6),primary_key=True)
             name = Column(String(16))
 
