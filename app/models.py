@@ -51,7 +51,8 @@ class models:
         Base.metadata.create_all(self.get_engine())
 
     def get_engine(self):
-        Engine = create_engine(self.get_databse_connecton(), echo=True)
+        Engine = create_engine(self.get_databse_connecton(), echo=False)
+
         return Engine
 
     def get_session(self):

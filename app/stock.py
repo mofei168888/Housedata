@@ -69,15 +69,14 @@ class StockData:
 
         #插入股票交易日数据
 
-        """
-        #stock.insert_stocklist()
-        """
-
-        #stock.insert_stock_data('000737', 'D')
         PERIOD = ('D')
         stocklist = self.get_stocklist()
         for sl in stocklist:
             print("code:%s,name:%s" % (sl.code, sl.name))
-            df = ts.bar(sl.code, ktype=PERIOD[0]).reset_index()
-            df.to_sql(Stockday_data.__tablename__, self.model.get_engine(), if_exists='append', index=False)
+            try:
+                df = ts.bar(sl.code, ktype=PERIOD[0]).reset_index()
+            except Exception as e:
+                print("get stock:%s network error!"%sl.code)
+            finally:
+                df.to_sql(Stockday_data.__tablename__, self.model.get_engine(), if_exists='append', index=False)
 
