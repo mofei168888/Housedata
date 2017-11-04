@@ -4,17 +4,18 @@ MAINTAINER Robin<robin.chen@b-uxin.com>
 
 ENV LANG C.UTF-8
 
+RUN apt-get update
+RUN apt-get install -y python3 && \
+     apt-get install -y python-pip
 
 #创建并管理Python运行的环境
 RUN pip install virtualenv
+RUN virtualenv -p --python=python3.6
 RUN virtualenv --no-site-packages smenv
 #使用bash命令集
 
 RUN ["/bin/bash","-c","source smenv/bin/activate"]
 
-RUN apt-get update
-RUN apt-get install -y python3 && \
-     apt-get install -y python-pip
 
 RUN  mkdir -p /app
 
