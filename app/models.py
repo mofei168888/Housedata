@@ -67,7 +67,7 @@ class models:
 
 
 class Stocklist(Base):
-    __tablename__ = 'stock_list'
+    __tablename__ = 'ux_stock_list'
 
     code = Column(String(6), primary_key=True, index=True)
     name = Column(String(16), index=True)
