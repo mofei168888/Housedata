@@ -43,6 +43,7 @@ def get_history_data(code, date):
 class StockData:
     def __init__(self):
         self.model = models()
+        self.model.drop_table()
         self.model.init_db()
         self.db_session = self.model.get_session()
 

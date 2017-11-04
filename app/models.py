@@ -63,12 +63,12 @@ class models:
     def get_connection(self):
         return self.get_session().connection()
 
-    def drop_table(self,table_name):
-        pass
+    def drop_table(self):
+        Base.metadata.drop_all(self.get_engine())
 
 
 class Stocklist(Base):
-    __tablename__ = 'ux_stock_list'
+    __tablename__ = 'stock_list'
 
     code = Column(String(6), primary_key=True, index=True)
     name = Column(String(16), index=True)
@@ -96,7 +96,7 @@ class Stocklist(Base):
 
 
 class Stockday_data(Base):
-    __tablename__ = 'ux_stock_data_day'
+    __tablename__ = 'stock_data_day'
 
     id = Column(Integer(), primary_key=True, autoincrement=True)
     code = Column(String(6), index=True)
@@ -106,7 +106,7 @@ class Stockday_data(Base):
     low = Column(Numeric(10, 2))
     close = Column(Numeric(10, 2))
     vol = Column(Numeric(20, 2))
-    amount = Column(Numeric(20, 2))
+    amount = Column(Numeric(25, 8))
 
 
 """
