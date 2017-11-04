@@ -9,9 +9,9 @@ import pandas as pd
 import tushare as ts
 import os
 try:
-    from app.sqlorm import sqlorm
+    from app.models import *
 except Exception as e:
-    from sqlorm import sqlorm
+    from models import *
 
 
 
@@ -50,9 +50,18 @@ if __name__ == '__main__':
    #print(data)
 
    print("start insert into mysql database!")
-   orm = sqlorm()
-   orm.create_tables()
+   model = models()
+   model.init_db()
+
+   session = model.get_session()
+
+   #每次执行时清空表
+   session.query(Stocklist).delete()
+   session.commit()
+
    counter = 0
    while 1:
-      orm.Engine.execute("INSERT INTO stock_list_test1 (code,name) VALUES ('%s','中兴通讯')"%counter)
+      stock = Stocklist(code='%s'%counter, name='中兴通讯')
+      session.add(stock)
+      session.commit()
       counter +=1
