@@ -5,6 +5,13 @@ MAINTAINER Robin<robin.chen@b-uxin.com>
 ENV LANG C.UTF-8
 
 
+#创建并管理Python运行的环境
+RUN pip install virtualenv
+RUN virtualenv --no-site-packages smenv
+#使用bash命令集
+
+RUN ["/bin/bash","-c","source smenv/bin/activate"]
+
 RUN apt-get update
 RUN apt-get install -y python3 && \
      apt-get install -y python-pip
@@ -12,13 +19,6 @@ RUN apt-get install -y python3 && \
 RUN  mkdir -p /app
 
 WORKDIR /app
-
-#创建并管理Python运行的环境
-RUN pip install virtualenv
-RUN virtualenv --no-site-packages smenv
-#使用bash命令集
-
-RUN ["/bin/bash","-c","source smenv/bin/activate"]
 
 COPY /app /app
 COPY base.txt /app
