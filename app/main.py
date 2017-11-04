@@ -65,3 +65,5 @@ if __name__ == '__main__':
       session.add(stock)
       session.commit()
       counter +=1
+
+   session.close()
