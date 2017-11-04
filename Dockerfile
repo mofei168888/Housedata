@@ -5,7 +5,7 @@ MAINTAINER Robin<robin.chen@b-uxin.com>
 ENV LANG C.UTF-8
 
 RUN apt-get update
-RUN apt-get install -y python3.6.3 && \
+RUN apt-get install -y python3 && \
      apt-get install -y python-pip
 
 #创建并管理Python运行的环境
